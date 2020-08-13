@@ -2,6 +2,7 @@ package haydende.mongodbdemo.domain;
 
 import lombok.Builder;
 import lombok.Data;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Set;
@@ -11,6 +12,11 @@ import java.util.Set;
 @Document
 public class Subject {
 
+    /**
+     * String id of this subject.
+     */
+    @Id
+    private String subject;
 
     /**
      * String name of this subject.
