@@ -2,9 +2,13 @@ package haydende.mongodbdemo.domain;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -24,12 +28,20 @@ public class Subject {
     private String description;
 
     /**
-     * String id of the students taking this subject.
+     * Set of Students doing this subject
      */
-    private Set<String> students;
+    @Builder.Default
+    @DBRef
+    private Set<Student> students = new HashSet<>();
 
     /**
-     * String id of the teacher teaching this subject.
+     * ID of the Teacher teaching this subject.
      */
-    private String teacher;
+    @EqualsAndHashCode.Exclude
+    private Teacher teacher;
+
+    public void addStudent(Student student) {
+        students.add(student);
+    }
+
 }

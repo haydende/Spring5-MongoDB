@@ -2,7 +2,10 @@ package haydende.mongodbdemo.domain;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Data
@@ -17,7 +20,8 @@ public class Teacher {
     private String lastName;
 
     /**
-     * String id of the subject this teacher teaches for.
+     * Name of the Subject this teacher teaches for.
      */
-    private String subject;
+    @DBRef
+    private Subject subject;
 }
