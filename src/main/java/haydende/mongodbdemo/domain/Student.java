@@ -3,8 +3,8 @@ package haydende.mongodbdemo.domain;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -20,12 +20,19 @@ public class Student {
     @Id
     private String id;
 
+    @EqualsAndHashCode.Exclude
     private String firstName;
+
+    @EqualsAndHashCode.Exclude
     private String lastName;
+
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Byte[] profileImage;
 
     @DBRef
     @Builder.Default
+    @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Set<Subject> subjects = new HashSet<>();
 

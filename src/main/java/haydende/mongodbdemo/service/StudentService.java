@@ -10,10 +10,6 @@ public interface StudentService {
 
     Student save(Student student);
 
-    Student save(Student... students);
-
-    void delete(Student student);
-
     void delete(Student... students);
 
     void deleteById(String id);
