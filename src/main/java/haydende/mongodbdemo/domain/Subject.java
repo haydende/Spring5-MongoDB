@@ -3,6 +3,7 @@ package haydende.mongodbdemo.domain;
 import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.DBRef;
@@ -25,6 +26,7 @@ public class Subject {
     /**
      * Set of Students doing this subject
      */
+    @ToString.Exclude
     @Builder.Default
     @DBRef
     private Set<Student> students = new HashSet<>();

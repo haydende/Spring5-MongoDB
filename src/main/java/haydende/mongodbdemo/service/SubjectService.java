@@ -8,10 +8,6 @@ public interface SubjectService {
 
     Subject save(Subject subject);
 
-    Subject save(Subject... subjects);
-
-    void delete(Subject subject);
-
     void delete(Subject... subjects);
 
     void deleteById(String id);
