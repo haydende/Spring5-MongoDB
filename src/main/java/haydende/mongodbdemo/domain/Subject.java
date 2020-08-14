@@ -17,15 +17,10 @@ import java.util.Set;
 public class Subject {
 
     /**
-     * String id of this subject.
+     * String name of this subject.
      */
     @Id
     private String subject;
-
-    /**
-     * String name of this subject.
-     */
-    private String description;
 
     /**
      * Set of Students doing this subject

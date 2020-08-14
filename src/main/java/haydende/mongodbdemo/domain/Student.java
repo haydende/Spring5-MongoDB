@@ -24,8 +24,9 @@ public class Student {
     private String lastName;
     private Byte[] profileImage;
 
-    @Builder.Default
     @DBRef
+    @Builder.Default
+    @EqualsAndHashCode.Exclude
     private Set<Subject> subjects = new HashSet<>();
 
     public void addSubject(Subject subject) {
