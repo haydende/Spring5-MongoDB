@@ -2,6 +2,8 @@ package haydende.mongodbdemo.service;
 
 import haydende.mongodbdemo.domain.Teacher;
 
+import java.util.List;
+
 public interface TeacherService {
 
     Teacher findById(String id);
@@ -15,4 +17,6 @@ public interface TeacherService {
     void deleteById(String id);
 
     void deleteAll();
+
+    List<Teacher> findAll();
 }

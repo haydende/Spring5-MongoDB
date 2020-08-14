@@ -4,6 +4,7 @@ import haydende.mongodbdemo.domain.Teacher;
 import haydende.mongodbdemo.repositories.TeacherRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -53,5 +54,10 @@ public class TeacherServiceImpl implements TeacherService {
     @Override
     public void deleteAll() {
         teacherRepository.deleteAll();
+    }
+
+    @Override
+    public List<Teacher> findAll() {
+        return teacherRepository.findAll();
     }
 }
