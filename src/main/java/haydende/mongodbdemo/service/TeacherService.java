@@ -10,10 +10,6 @@ public interface TeacherService {
 
     Teacher save(Teacher teacher);
 
-    Teacher save(Teacher... teachers);
-
-    void delete(Teacher teacher);
-
     void delete(Teacher... teachers);
 
     void deleteById(String id);
