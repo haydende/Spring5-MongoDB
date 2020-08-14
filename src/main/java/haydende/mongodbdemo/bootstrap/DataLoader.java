@@ -34,24 +34,35 @@ public class DataLoader implements CommandLineRunner {
     private void addData() {
         Student student = Student
             .builder()
+            .id(String.valueOf(1L))
             .firstName("Stew")
+            .lastName("Dent")
+            .build();
+
+        Student student2 = Student
+            .builder()
+            .id(String.valueOf(2L))
+            .firstName("Stoo")
             .lastName("Dent")
             .build();
 
         Teacher teacher = Teacher
             .builder()
+            .id(String.valueOf(1L))
             .firstName("Tee")
             .lastName("Cher")
             .build();
 
         Subject subject = Subject
             .builder()
-            .description("Chemistry")
+            .subject("Chemistry")
             .teacher(teacher)
             .build();
 
         subject.addStudent(student);
+        subject.addStudent(student2);
         student.addSubject(subject);
+        student2.addSubject(subject);
         subject.setTeacher(teacher);
         teacher.setSubject(subject);
 
