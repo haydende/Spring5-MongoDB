@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -41,6 +43,21 @@ class SubjectServiceTest {
         Subject actualSubject = subjectService.findByName(NAME);
 
         assertEquals(NAME, actualSubject.getSubject());
+    }
+
+    @Test
+    void findAll() {
+        List<Subject> subjects =
+            Arrays.asList(
+                Subject.builder().build(),
+                Subject.builder().build()
+            );
+
+        BDDMockito.given(subjectRepository.findAll()).willReturn(subjects);
+
+        List<Subject> actualSubjects = subjectRepository.findAll();
+
+        assertEquals(2, actualSubjects.size());
     }
 
     @Test
