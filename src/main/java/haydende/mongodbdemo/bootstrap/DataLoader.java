@@ -6,9 +6,11 @@ import haydende.mongodbdemo.domain.Teacher;
 import haydende.mongodbdemo.repositories.StudentRepository;
 import haydende.mongodbdemo.repositories.SubjectRepository;
 import haydende.mongodbdemo.repositories.TeacherRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+@Slf4j
 @Component
 public class DataLoader implements CommandLineRunner {
 
@@ -24,10 +26,13 @@ public class DataLoader implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+        log.debug("Starting DataLoader...");
         if (studentRepository.count() == 0 ||
             subjectRepository.count() == 0 ||
             teacherRepository.count() == 0) {
+            log.debug("Loading new data...");
             addData();
+            log.debug("Done");
         }
     }
 
