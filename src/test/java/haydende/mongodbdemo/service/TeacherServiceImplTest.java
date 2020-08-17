@@ -9,6 +9,8 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -57,6 +59,21 @@ class TeacherServiceImplTest {
         Teacher actualTeacher = teacherService.findByLastName(LAST_NAME);
 
         assertEquals(LAST_NAME, actualTeacher.getLastName());
+    }
+
+    @Test
+    void findAll() {
+        List<Teacher> teachers =
+            Arrays.asList(
+                Teacher.builder().build(),
+                Teacher.builder().build()
+        );
+
+        BDDMockito.given(teacherRepository.findAll()).willReturn(teachers);
+
+        List<Teacher> actualTeachers = teacherService.findAll();
+
+        assertEquals(2, actualTeachers.size());
     }
 
     @Test
