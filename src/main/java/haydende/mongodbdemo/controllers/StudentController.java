@@ -20,7 +20,7 @@ public class StudentController {
     @RequestMapping("")
     public String findAll(Model model) {
         log.error("Invoking StudentController.findAll()");
-        model.addAttribute(studentService.findAll());
+        model.addAttribute("students", studentService.findAll());
         return "/students/students";
     }
 
