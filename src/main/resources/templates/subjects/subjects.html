@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Subjects</title>
+</head>
+<body>
+<h2>Subjects</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Teacher ID</th>
+        <th>Students</th>
+    </tr>
+    <!--/*@thymesVar id="subject" type="haydende.mongodbdemo.domain.Subject"*/-->
+    <tr th:each="subject : ${subjects}">
+        <th th:text="${subject.subject}"></th>
+        <th th:text="${subject.teacher}"></th>
+        <th href="/students/">Students</th>
+    </tr>
+</table>
+</body>
+</html>
