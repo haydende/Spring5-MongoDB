@@ -56,17 +56,18 @@ public class DataLoader implements CommandLineRunner {
         Subject subject = Subject
             .builder()
             .subject("Chemistry")
-            .teacher(teacher)
+            .teacher(teacher.getId())
             .build();
 
         subject.addStudent(student);
         subject.addStudent(student2);
-        student.addSubject(subject);
-        student2.addSubject(subject);
-        subject.setTeacher(teacher);
-        teacher.setSubject(subject);
+        student.addSubject(subject.getSubject());
+        student2.addSubject(subject.getSubject());
+        subject.setTeacher(teacher.getId());
+        teacher.setSubject(subject.getSubject());
 
         studentRepository.save(student);
+        studentRepository.save(student2);
         subjectRepository.save(subject);
         teacherRepository.save(teacher);
     }

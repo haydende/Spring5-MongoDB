@@ -24,6 +24,5 @@ public class Teacher {
      * Name of the Subject this teacher teaches for.
      */
     @ToString.Exclude
-    @DBRef
-    private Subject subject;
+    private String subject;
 }

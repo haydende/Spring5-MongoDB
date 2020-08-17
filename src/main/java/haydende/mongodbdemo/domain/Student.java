@@ -30,13 +30,12 @@ public class Student {
     @EqualsAndHashCode.Exclude
     private Byte[] profileImage;
 
-    @DBRef
     @Builder.Default
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set<Subject> subjects = new HashSet<>();
+    private Set<String> subjects = new HashSet<>();
 
-    public void addSubject(Subject subject) {
+    public void addSubject(String subject) {
         subjects.add(subject);
     }
 }

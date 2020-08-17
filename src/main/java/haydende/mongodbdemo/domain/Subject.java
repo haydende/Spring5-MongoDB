@@ -35,7 +35,7 @@ public class Subject {
      * ID of the Teacher teaching this subject.
      */
     @EqualsAndHashCode.Exclude
-    private Teacher teacher;
+    private String teacher;
 
     public void addStudent(Student student) {
         students.add(student);
