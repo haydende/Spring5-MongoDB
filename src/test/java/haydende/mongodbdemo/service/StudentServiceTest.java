@@ -6,6 +6,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.*;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -56,6 +58,21 @@ class StudentServiceTest {
         Student actualStudent = studentService.findByLastName(LAST_NAME);
 
         assertEquals(LAST_NAME, actualStudent.getLastName());
+    }
+
+    @Test
+    void findAll() {
+        List<Student> students =
+            Arrays.asList(
+                Student.builder().build(),
+                Student.builder().build()
+            );
+
+        BDDMockito.given(studentRepository.findAll()).willReturn(students);
+
+        List<Student> actualStudents = studentService.findAll();
+
+        assertEquals(2, actualStudents.size());
     }
 
     @Test

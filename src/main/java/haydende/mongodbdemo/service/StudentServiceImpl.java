@@ -4,6 +4,7 @@ import haydende.mongodbdemo.domain.Student;
 import haydende.mongodbdemo.repositories.StudentRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -31,6 +32,11 @@ public class StudentServiceImpl implements StudentService {
             return student.get();
         }
         throw new RuntimeException("No student with that Last Name has been found");
+    }
+
+    @Override
+    public List<Student> findAll() {
+        return studentRepository.findAll();
     }
 
     @Override
